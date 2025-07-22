@@ -31,4 +31,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+
+    'dolibarr' => [
+        'login' => env('DOLIBARR_LOGIN'),
+        'password' => env('DOLIBARR_PASSWORD'),
+        'reset' => env('DOLIBARR_RESET', '1'),
+        'domain' => env('DOLIBARR_DOMAIN'),
+    ],
+
 ];

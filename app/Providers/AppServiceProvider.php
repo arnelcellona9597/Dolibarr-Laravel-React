@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Components\Services\ApiService\IDolibarrApiService;
+use App\Components\Services\ApiService\Impl\DolibarrApiService;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -19,6 +22,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->app->singleton(IDolibarrApiService::class, function ($app)
+        {
+            return new DolibarrApiService;
+        });
     }
 }
