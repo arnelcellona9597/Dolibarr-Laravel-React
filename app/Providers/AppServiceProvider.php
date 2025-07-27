@@ -14,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(IDolibarrApiService::class, function ($app)
+        {
+            return new DolibarrApiService;
+        });
     }
 
     /**
@@ -22,9 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->app->singleton(IDolibarrApiService::class, function ($app)
-        {
-            return new DolibarrApiService;
-        });
+
     }
 }

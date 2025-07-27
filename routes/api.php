@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +25,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::group(['prefix' => 'dolibarr'], function() {
-    Route::get('/get-token',  [UserController::class, 'getToken']); 
+    Route::get('/get-token',  [UserController::class, 'getToken']);
+    Route::get('/get-products',  [ProductController::class, 'getProducts']);
+    Route::get('/get-categories',  [CategoryController::class, 'getCategories']);
+    Route::get('/get-latest-products-updates/{hours?}', [ProductController::class, 'getLatestProductsUpdates']);
+    Route::get('/get-latest-categories-updates/{hours?}', [CategoryController::class, 'getLatestCategoriesUpdates']);
 });

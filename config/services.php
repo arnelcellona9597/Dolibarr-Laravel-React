@@ -37,6 +37,7 @@ return [
         'password' => env('DOLIBARR_PASSWORD'),
         'reset' => env('DOLIBARR_RESET', '1'),
         'domain' => env('DOLIBARR_DOMAIN'),
+        'accept' => env('ACCEPT'),
     ],
 
 ];
